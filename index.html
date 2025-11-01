@@ -134,27 +134,41 @@
             margin: 0;
         }
         
-        /* 4.2. Estilo de Link (Acessibilidade) - Novo Estilo Adicionado */
-        .card-header h3 a {
+        /* NOVO: Estilo para a instrução de CV */
+        .cv-instruction {
             color: var(--text-primary); 
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            border-radius: 4px;
+            background-color: var(--card-bg);
+            border: 1px dashed var(--accent-color);
+            text-align: center;
+            margin-bottom: var(--space-md);
+        }
+
+        /* 4.2. Estilo de Link (Acessibilidade) - Destaque no nome */
+        .card-header h3 a {
+            color: var(--accent-color); /* Destaque inicial em verde */
             text-decoration: none; 
             transition: color 0.3s ease;
             display: inline-flex;
             align-items: center;
+            font-weight: 700; /* Mais peso visual */
         }
         .card-header h3 a:hover, .card-header h3 a:focus-visible {
-            color: var(--accent-color);
+            color: var(--text-primary); /* Branco no hover */
         }
         .card-header h3 a .link-icon {
             width: 18px; 
             height: 18px; 
             margin-left: 8px;
-            color: var(--accent-color);
+            color: var(--text-primary); /* Cor do ícone em branco para contraste */
             transition: transform 0.3s ease, color 0.3s ease;
         }
         .card-header h3 a:hover .link-icon {
             transform: scale(1.1);
-            color: var(--text-primary); /* Inverter a cor do ícone no hover para destaque */
+            color: var(--accent-color); /* Cor do ícone em verde no hover */
         }
         
         .icon {
@@ -237,6 +251,9 @@
             <div class="container">
                 <h2 class="fade-in">1. Top Talentos - Adequação Máxima <i data-lucide="zap"></i></h2>
                 <p class="text-lead fade-in" style="animation-delay: 0.1s;">Estes candidatos cumprem todos os requisitos e possuem histórico de excelência em relacionamento e resultados.</p>
+                <p class="cv-instruction fade-in" style="animation-delay: 0.15s;">
+                    INSTRUÇÃO: Para acessar o Currículo completo de cada candidato, <span class="text-accent">clique diretamente no nome</span> destacado em cada card.
+                </p>
 
                 <div class="grid-2">
                     
@@ -276,6 +293,9 @@
             <div class="container">
                 <h2 class="fade-in">2. Candidato Sólido - Nível de Adequação ALTO <i data-lucide="user-check"></i></h2>
                 <p class="text-lead fade-in" style="animation-delay: 0.1s;">Um profissional com histórico consistente em vendas e gestão de metas, que merece atenção na entrevista.</p>
+                <p class="cv-instruction fade-in" style="animation-delay: 0.15s;">
+                    INSTRUÇÃO: Para acessar o Currículo completo de cada candidato, <span class="text-accent">clique diretamente no nome</span> destacado em cada card.
+                </p>
 
                 <div class="grid-3">
                     <!-- Card Michel -->
@@ -390,3 +410,5 @@
     </script>
 </body>
 </html>
+
+
