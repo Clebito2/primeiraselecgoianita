@@ -197,6 +197,36 @@
             border-color: var(--accent-color);
         }
 
+        /* NOVO: Link para o Guia de Entrevistas */
+        .guide-link {
+            display: block;
+            background-color: var(--card-bg);
+            border: 1px solid var(--accent-color);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--card-radius);
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin-top: var(--space-md);
+            font-size: 1.15rem;
+        }
+        .guide-link:hover, .guide-link:focus-visible {
+            color: var(--accent-color);
+            box-shadow: var(--accent-glow);
+            transform: translateY(-5px);
+            outline: none;
+        }
+        .guide-link .icon { 
+             margin-right: 10px;
+             color: var(--accent-color);
+             vertical-align: middle; /* Alinha o ícone */
+             width: 20px;
+             height: 20px;
+        }
+
+
         /* 5. Animações e Performance */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -240,9 +270,19 @@
         <section style="padding-top: calc(var(--space-xl) + 60px);">
             <div class="container fade-in">
                 <h1 class="text-accent">Recrutamento Estratégico Casa Goianita</h1>
-                <p class="text-lead">Análise final dos 3 candidatos mais adequados à vaga de Vendas, com foco em <span class="text-accent">Foco no Cliente, Paixão por Vendas e Foco em Metas</span>.</p>
+                <p class="text-lead">Análise final dos candidatos mais adequados à vaga de Vendas, com foco em <span class="text-accent">Foco no Cliente, Paixão por Vendas e Foco em Metas</span>.</p>
                 <!-- O link da Valeska pode ser útil para referência, caso haja necessidade de checagem. No entanto, ela segue desclassificada. -->
-                <p class="merriweather" style="margin-top: var(--space-sm);">Candidata Vaneska Cirilo foi desclassificada por não atender ao requisito obrigatório de Ensino Médio completo. (CV de Valeska para referência: <a href="https://docs.google.com/document/d/1FBvgTej010vXIRrBWw-6OsypAEtAj-KV/edit?usp=sharing&ouid=105131605658621100655&rtpof=true&sd=true" target="_blank" style="color: var(--accent-color);">link</a>)</p>
+                <p class="merriweather" style="margin-top: var(--space-sm);">Candidatos desclassificados por não atenderem aos requisitos da vaga ou por localização (Brasília):<br>
+                    Valeska Cirilo (Ensino Médio incompleto): <a href="https://docs.google.com/document/d/1FBvgTej010vXIRrBWw-6OsypAEtAj-KV/edit?usp=sharing&ouid=105131605658621100655&rtpof=true&sd=true" target="_blank" style="color: var(--accent-color);">link</a><br>
+                    André Luis Martins (Desclassificado): <a href="https://docs.google.com/document/d/1-MrJkWCkkIb_NZ0wRKdnPvccL5hjmQj-/edit?usp=sharing&ouid=105131605658621100655&rtpof=true&sd=true" target="_blank" style="color: var(--accent-color);">link</a><br>
+                    Carlos Alberto de Lima Junior (Desclassificado/Brasília): <a href="https://docs.google.com/document/d/1_oqFgmuF6g5zrmum9hnz3NJhzx35Ces4/edit?rtpof=true&tab=t.0" target="_blank" style="color: var(--accent-color);">link</a>
+                </p>
+
+                <!-- NOVO: Link para o Guia de Entrevistas -->
+                <a href="https://processo-entrevista.netlify.app/" target="_blank" class="guide-link fade-in" style="animation-delay: 0.1s;">
+                    <i data-lucide="book-check" class="icon"></i>
+                    Acessar o Guia de Entrevistas (Processo e Perguntas)
+                </a>
             </div>
         </section>
 
@@ -255,7 +295,7 @@
                     INSTRUÇÃO: Para acessar o Currículo completo de cada candidato, <span class="text-accent">clique diretamente no nome</span> destacado em cada card.
                 </p>
 
-                <div class="grid-3">
+                <div class="grid-2"> <!-- ATUALIZADO DE grid-3 PARA grid-2 -->
                     
                     <!-- Card Bruno dos Anjos -->
                     <div class="card card-highlight high-fit fade-in" tabindex="0" style="animation-delay: 0.2s;">
@@ -271,19 +311,7 @@
                         </ul>
                     </div>
 
-                    <!-- Card André Luis Martins -->
-                    <div class="card card-highlight high-fit fade-in" tabindex="0" style="animation-delay: 0.3s;">
-                        <div class="card-header">
-                            <i data-lucide="heart" class="icon"></i>
-                            <h3><a href="https://docs.google.com/document/d/1-MrJkWCkkIb_NZ0wRKdnPvccL5hjmQj-/edit?usp=sharing&ouid=105131605658621100655&rtpof=true&sd=true" target="_blank">André Luis Martins <i data-lucide="external-link" class="link-icon"></i></a></h3>
-                        </div>
-                        <p class="merriweather">Nível de Adequação: <span class="text-accent">MUITO ALTO</span> | Perfil: Excelência em Vendas e Fidelização.</p>
-                        <ul>
-                            <li><span class="text-accent">Desejável:</span> Vendas de longo prazo em <span class="text-accent">varejo de luxo</span> (Coach New York), indicando atendimento de excelência.</li>
-                            <li><span class="text-accent">Perfil:</span> Especialista em fidelização e atendimento <span class="text-accent">do início do processo ao pós-venda</span>. Forte foco em metas.</li>
-                            <li><span class="text-accent">Diferencial:</span> Inglês Intermediário, útil para clientes internacionais ou de alto padrão.</li>
-                        </ul>
-                    </div>
+                    <!-- Card André Luis Martins - REMOVIDO -->
                     
                     <!-- NOVO Card Iury Oliveira Gomes -->
                     <div class="card card-highlight high-fit fade-in" tabindex="0" style="animation-delay: 0.4s;">
@@ -327,18 +355,18 @@
                         </ul>
                     </div>
                     
-                    <!-- NOVO Card Carlos Alberto de Lima Junior -->
+                    <!-- NOVO Card Fábio Soares Cantuário -->
                     <div class="card fade-in" tabindex="0" style="animation-delay: 0.3s;">
                         <div class="card-header">
-                            <i data-lucide="bar-chart-3" class="icon"></i>
+                            <i data-lucide="clipboard-user" class="icon"></i>
                             <!-- Link Adicionado -->
-                            <h3><a href="https://docs.google.com/document/d/1_oqFgmuF6g5zrmum9hnz3NJhzx35Ces4/edit?rtpof=true&tab=t.0" target="_blank">Carlos Alberto de Lima Junior <i data-lucide="external-link" class="link-icon"></i></a></h3>
+                            <h3><a href="https://drive.google.com/file/d/1mWTmx_kcg_-TTzIEkIpMyy48-VYeu_jj/view?usp=sharing" target="_blank">Fábio Soares Cantuário <i data-lucide="external-link" class="link-icon"></i></a></h3>
                         </div>
-                        <p class="merriweather">Nível de Adequação: ALTO | Perfil: Estratégico de Vendas (B2B/Consultivo).</p>
+                        <p class="merriweather">Nível de Adequação: ALTO | Perfil: Gestão de Vendas / Liderança.</p>
                         <ul>
-                            <li><span class="text-accent">Diferencial Chave:</span> Pós-graduação em <span class="text-accent">Gestão Estratégica de Vendas</span> e Psicologia Organizacional.</li>
-                            <li><span class="text-accent">Diferencial:</span> Experiência explícita com <span class="text-accent">CRM</span> e gestão de grandes contas.</li>
-                            <li><span class="text-accent">Ponto a Explorar:</span> Experiência não é em varejo (loja). <span class="text-accent">Localização: Brasília/DF.</span></li>
+                            <li><span class="text-accent">Diferencial Chave:</span> Graduado em <span class="text-accent">Administração de Empresas</span> e vasta experiência em Supervisão de Vendas (Ciclo Engenharia) e Liderança de Loja (Atacadão).</li>
+                            <li><span class="text-accent">Habilidades:</span> Experiência em seleção, contratação, demissão e treinamento de equipes de vendas.</li>
+                            <li><span class="text-accent">Ponto a Explorar:</span> Validar o interesse em uma vaga de <span class="text-accent">vendedor de linha de frente</span>, dado seu forte histórico de gestão.</li>
                         </ul>
                     </div>
                 </div>
@@ -357,10 +385,9 @@
                     <div class="card card-highlight fade-in" tabindex="0" style="animation-delay: 0.2s;">
                         <div class="card-header">
                             <i data-lucide="columns" class="icon"></i>
-                            <h3>Comparação Top 3 (André vs. Bruno vs. Iury)</h3>
+                            <h3>Comparação Top 2 (Bruno vs. Iury)</h3>
                         </div>
                         <ul>
-                            <li><span class="text-accent">André Luis:</span> Foco em Padrão de Atendimento de Excelência (Luxo/Pós-venda).</li>
                             <li><span class="text-accent">Bruno dos Anjos:</span> Foco em Potencial de Liderança (Supervisão/Gestão).</li>
                             <li><span class="text-accent">Iury Gomes:</span> Foco em Networking e Venda de Alto Valor (Imóveis/Arquitetura).</li>
                         </ul>
@@ -372,13 +399,12 @@
                             <i data-lucide="message-square" class="icon"></i>
                             <h3>Validação dos Diferenciais</h3>
                         </div>
-                        <p>É crucial validar a vivência com o <span class="text-accent">segmento Casa/Decoração</span> (diferencial da vaga) com Bruno e André. Perguntas focadas:</p>
+                        <p>É crucial validar a vivência com o <span class="text-accent">segmento Casa/Decoração</span> (diferencial da vaga). Perguntas focadas:</p>
                         <ul>
                             <li><span class="text-accent">Bruno:</span> Como a venda de PVC se relaciona com projetos de casa ou arquitetura?</li>
-                            <li><span class="text-accent">André:</span> Como sua rede de contatos no varejo pode ser transferida para o segmento de Casa e Decoração?</li>
                             <li><span class="text-accent">Michel:</span> Peça exemplos de como ele usou sistemas <span class="text-accent">(CRM/ERP)</span> para gerenciar seu funil de vendas.</li>
                             <li><span class="text-accent">Iury:</span> Validar se sua rede de contatos no setor imobiliário (RE/MAX) inclui arquitetos e designers.</li>
-                            <li><span class="text-accent">Carlos:</span> Confirmar disponibilidade de mudança (Brasília -> Goiânia) e como adaptaria sua experiência B2B para o varejo.</li>
+                            <li><span class="text-accent">Fábio:</span> Dado seu histórico de Gestor, qual sua motivação para atuar na linha de frente de vendas no varejo?</li>
                         </ul>
                     </div>
 
@@ -443,8 +469,5 @@
     </script>
 </body>
 </html>
-
-
-
 
 
