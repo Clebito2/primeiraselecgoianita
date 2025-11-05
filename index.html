@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avaliação Final - Vaga de Vendas</title>
+    <title>Avaliação Final de Candidatos - Vendas Casa Goianita</title>
     <!-- 1.2. Tipografia (Tokens) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;1,700;1,900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,400;1,700;1,900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Load Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -91,7 +91,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(6, 25, 42, 0.8); /* Azul Petróleo semi-transparente */
+            background-color: rgba(6, 25, 42, 0.9); /* Azul Petróleo semi-transparente */
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
@@ -114,6 +114,10 @@
             padding: var(--space-md);
             border-radius: var(--card-radius);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative; /* Para o overlay do link */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .card:hover {
             /* Estados de Interação: :hover */
@@ -126,104 +130,89 @@
             outline-offset: 4px;
         }
         .card-header {
-            display: flex;
-            align-items: center;
             margin-bottom: var(--space-sm);
         }
         .card-header h3 {
             margin: 0;
+            line-height: 1.4;
         }
-        
-        /* NOVO: Estilo para a instrução de CV */
-        .cv-instruction {
-            color: var(--text-primary); 
-            font-weight: 700;
-            font-size: 1.1rem;
-            padding: 10px 15px;
-            border-radius: 4px;
-            background-color: var(--card-bg);
-            border: 1px dashed var(--accent-color);
-            text-align: center;
-            margin-bottom: var(--space-md);
-        }
-
-        /* 4.2. Estilo de Link (Acessibilidade) - Destaque no nome */
-        .card-header h3 a {
-            color: var(--accent-color); /* Destaque inicial em verde */
-            text-decoration: none; 
-            transition: color 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            font-weight: 700; /* Mais peso visual */
-        }
-        .card-header h3 a:hover, .card-header h3 a:focus-visible {
-            color: var(--text-primary); /* Branco no hover */
-        }
-        .card-header h3 a .link-icon {
-            width: 18px; 
-            height: 18px; 
-            margin-left: 8px;
-            color: var(--text-primary); /* Cor do ícone em branco para contraste */
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-        .card-header h3 a:hover .link-icon {
-            transform: scale(1.1);
-            color: var(--accent-color); /* Cor do ícone em verde no hover */
-        }
-        
         .icon {
             margin-right: 10px;
             color: var(--accent-color);
         }
         .card ul {
-            padding-left: var(--space-sm);
-            margin-top: 0;
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
             color: var(--text-subtle);
         }
         .card ul li {
             margin-bottom: 0.5rem;
         }
-        /* Destaque para Nível de Adequação */
+
+        /* Link de CV em Evidência */
+        .cv-link {
+            color: var(--accent-color); /* Destaca o nome do candidato */
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+        }
+        .cv-link:hover {
+            color: var(--text-primary); /* Inversão de cores no hover */
+        }
+        .cv-link .icon {
+            margin-left: 8px;
+            margin-right: 0;
+        }
+
+        /* 4.2. Card de Diagnóstico (Proposta Comercial) - Usado para Destaque */
         .card-highlight {
             border-left: 3px solid var(--accent-color);
-            padding-left: calc(var(--space-md) - 3px); 
+            padding-left: calc(var(--space-md) - 3px); /* Ajusta padding para manter alinhamento */
         }
         .card-highlight .merriweather {
             font-size: 1.15rem;
             color: var(--text-muted);
         }
-        .high-fit {
+
+        /* Caixa de Instrução para o Recrutador */
+        .instruction-box {
             background-color: rgba(0, 232, 0, 0.1);
-            border-color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: var(--space-sm);
+            border-radius: var(--card-radius);
+            margin-top: var(--space-md);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        .instruction-box i {
+            margin-right: var(--space-sm);
         }
 
-        /* NOVO: Link para o Guia de Entrevistas */
-        .guide-link {
-            display: block;
+        /* Destaque para desclassificados */
+        .desclassificado {
+            color: #ff6347; /* Vermelho suave */
+            font-style: italic;
+        }
+
+        /* Guia de Entrevista Destaque */
+        .interview-guide-box {
             background-color: var(--card-bg);
-            border: 1px solid var(--accent-color);
-            padding: var(--space-sm) var(--space-md);
+            border: 2px solid var(--accent-color);
+            padding: var(--space-md);
             border-radius: var(--card-radius);
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 600;
             text-align: center;
-            transition: all 0.3s ease;
-            margin-top: var(--space-md);
-            font-size: 1.15rem;
+            margin-bottom: var(--space-md);
         }
-        .guide-link:hover, .guide-link:focus-visible {
+        .interview-guide-box a {
+            font-size: 1.1rem;
+            font-weight: 700;
             color: var(--accent-color);
-            box-shadow: var(--accent-glow);
-            transform: translateY(-5px);
-            outline: none;
-        }
-        .guide-link .icon { 
-             margin-right: 10px;
-             color: var(--accent-color);
-             vertical-align: middle; /* Alinha o ícone */
-             width: 20px;
-             height: 20px;
+            text-decoration: underline;
         }
 
 
@@ -233,7 +222,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .fade-in {
-            opacity: 0; 
+            opacity: 0; /* Inicialmente invisível */
             transform: translateY(20px);
         }
         .fade-in.is-visible {
@@ -261,7 +250,7 @@
     <header>
         <div class="container header-content">
             <img class="logo-img" src="https://raw.githubusercontent.com/Clebito2/ConsultoriaLive/main/Logo%20live%20oficial-21.png" alt="Logo Principal da Live Consultoria" loading="lazy">
-            <h3 style="color: var(--text-primary); font-size: 1.25rem;">Avaliação para Vaga de Vendas</h3>
+            <h3 style="color: var(--text-primary); font-size: 1.25rem;">Avaliação de Talentos</h3>
         </div>
     </header>
 
@@ -269,142 +258,180 @@
         <!-- SEÇÃO PRINCIPAL: Introdução e Contexto -->
         <section style="padding-top: calc(var(--space-xl) + 60px);">
             <div class="container fade-in">
-                <h1 class="text-accent">Recrutamento Estratégico Casa Goianita</h1>
-                <p class="text-lead">Análise final dos candidatos mais adequados à vaga de Vendas, com foco em <span class="text-accent">Foco no Cliente, Paixão por Vendas e Foco em Metas</span>.</p>
-                <!-- O link da Valeska pode ser útil para referência, caso haja necessidade de checagem. No entanto, ela segue desclassificada. -->
-                <p class="merriweather" style="margin-top: var(--space-sm);">Candidatos desclassificados por não atenderem aos requisitos da vaga ou por localização (Brasília):<br>
-                    Valeska Cirilo (Ensino Médio incompleto): <a href="https://docs.google.com/document/d/1FBvgTej010vXIRrBWw-6OsypAEtAj-KV/edit?usp=sharing&ouid=105131605658621100655&rtpof=true&sd=true" target="_blank" style="color: var(--accent-color);">link</a><br>
-                    André Luis Martins (Desclassificado): <a href="https://docs.google.com/document/d/1-MrJkWCkkIb_NZ0wRKdnPvccL5hjmQj-/edit?usp=sharing&ouid=105131605658621100655&rtpof=true&sd=true" target="_blank" style="color: var(--accent-color);">link</a><br>
-                    Carlos Alberto de Lima Junior (Desclassificado/Brasília): <a href="https://docs.google.com/document/d/1_oqFgmuF6g5zrmum9hnz3NJhzx35Ces4/edit?rtpof=true&tab=t.0" target="_blank" style="color: var(--accent-color);">link</a>
-                </p>
+                <h1 class="text-accent">Recrutamento Casa Goianita: Foco em Vendas e Relacionamento</h1>
+                <p class="text-lead">Análise final dos perfis com maior alinhamento à vaga de Vendedor(a) da Casa Goianita, que exige **foco total no cliente** e **vivência em alto padrão**.</p>
+                
+                <div class="interview-guide-box fade-in" style="animation-delay: 0.1s;">
+                    <i data-lucide="chevrons-right" style="color: var(--accent-color); vertical-align: middle;"></i>
+                    <a href="https://processo-entrevista.netlify.app/" target="_blank">Acesse o Guia de Entrevistas & Role Play</a>
+                    <p style="color: var(--text-subtle); margin-top: 0.5rem; margin-bottom: 0;">Ferramenta essencial para a próxima etapa da seleção.</p>
+                </div>
 
-                <!-- NOVO: Link para o Guia de Entrevistas -->
-                <a href="https://processo-entrevista.netlify.app/" target="_blank" class="guide-link fade-in" style="animation-delay: 0.1s;">
-                    <i data-lucide="book-check" class="icon"></i>
-                    Acessar o Guia de Entrevistas (Processo e Perguntas)
-                </a>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 1: Top Candidatos (Nível de Adequação: MUITO ALTO) -->
-        <section>
-            <div class="container">
-                <h2 class="fade-in">1. Top Talentos - Adequação Máxima <i data-lucide="zap"></i></h2>
-                <p class="text-lead fade-in" style="animation-delay: 0.1s;">Estes candidatos cumprem todos os requisitos e possuem histórico de excelência em relacionamento e resultados.</p>
-                <p class="cv-instruction fade-in" style="animation-delay: 0.15s;">
-                    INSTRUÇÃO: Para acessar o Currículo completo de cada candidato, <span class="text-accent">clique diretamente no nome</span> destacado em cada card.
-                </p>
-
-                <div class="grid-2"> <!-- ATUALIZADO DE grid-3 PARA grid-2 -->
-                    
-                    <!-- Card Bruno dos Anjos -->
-                    <div class="card card-highlight high-fit fade-in" tabindex="0" style="animation-delay: 0.2s;">
-                        <div class="card-header">
-                            <i data-lucide="trending-up" class="icon"></i>
-                            <h3><a href="https://drive.google.com/file/d/1ERnETdrTmhpaVtdSvKCr0vF-9YxNYfUH/view?usp=sharing" target="_blank">Bruno dos Anjos <i data-lucide="external-link" class="link-icon"></i></a></h3>
-                        </div>
-                        <p class="merriweather">Nível de Adequação: <span class="text-accent">MUITO ALTO</span> | Perfil: Progressão de Carreira e Liderança.</p>
-                        <ul>
-                            <li><span class="text-accent">Desejável:</span> Experiência consolidada (Interno > Externo > Supervisor).</li>
-                            <li><span class="text-accent">Perfil:</span> Forte foco em <span class="text-accent">relacionamentos sólidos</span> e gestão de equipe, alinhado ao perfil orientado a resultados.</li>
-                            <li><span class="text-accent">Diferencial:</span> Cursando Gestão Comercial. Sua experiência em PVC pode ter sinergia com o segmento Casa/Acabamentos.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Card André Luis Martins - REMOVIDO -->
-                    
-                    <!-- NOVO Card Iury Oliveira Gomes -->
-                    <div class="card card-highlight high-fit fade-in" tabindex="0" style="animation-delay: 0.4s;">
-                        <div class="card-header">
-                            <i data-lucide="star" class="icon"></i>
-                            <!-- Link Adicionado -->
-                            <h3><a href="https://docs.google.com/document/d/1Tca4fUh0smzhmX4RbgfrSWtoNn7QqXlm/edit" target="_blank">Iury Oliveira Gomes <i data-lucide="external-link" class="link-icon"></i></a></h3>
-                        </div>
-                        <p class="merriweather">Nível de Adequação: <span class="text-accent">MUITO ALTO</span> | Perfil: Vendas de Alto Valor (Imóveis).</p>
-                        <ul>
-                            <li><span class="text-accent">Diferencial Chave:</span> 5 anos como Corretor de Imóveis (CRECI). Venda de alto valor e relacionamento.</li>
-                            <li><span class="text-accent">Perfil:</span> Alinhado com "relacionamentos duradouros". Experiência em vendas de veículos (varejo).</li>
-                            <li><span class="text-accent">Rede de Contatos:</span> A vivência em imóveis (RE/MAX) é um <span class="text-accent">enorme diferencial</span> para sinergia com arquitetos.</li>
-                        </ul>
-                    </div>
+                <div class="card fade-in" style="margin-top: var(--space-md); animation-delay: 0.2s;">
+                    <p class="merriweather">
+                        <span class="text-accent">Candidatos Desclassificados/Outro Foco:</span>
+                        Vaneska Cirilo (Não atende escolaridade obrigatória), Carlos Lima e André Luis Martins (Desclassificados), Pedro Acioli (Foco em Logística/Gestão), Juliana Benignos (Recusou Proposta).
+                        <br>
+                        <span class="text-subtle">CVs para referência:</span>
+                        <a href="https://docs.google.com/document/d/1FBvgTej010vXIRrBWw-6OsypAEtAj-KV/edit?usp=sharing&ouid=105131605658621100655&rtpof=true&sd=true" target="_blank" class="desclassificado">Vaneska</a>, 
+                        <a href="https://docs.google.com/document/d/1_oqFgmuF6g5zrmum9hnz3NJhzx35Ces4/edit?rtpof=true&tab=t.0" target="_blank" class="desclassificado">Carlos</a>, 
+                        <a href="https://docs.google.com/document/d/1-MrJkWCkkIb_NZ0wRKdnPvccL5hjmQj-/edit?usp=sharing&ouid=105131605658621100655&rtpof=true&sd=true" target="_blank" class="desclassificado">André</a>.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 2: Candidato Sólido -->
+        <!-- SEÇÃO 1: Top Talentos (Melhor Adequação) -->
         <section>
             <div class="container">
-                <h2 class="fade-in">2. Candidatos Sólidos - Nível de Adequação ALTO <i data-lucide="user-check"></i></h2>
-                <p class="text-lead fade-in" style="animation-delay: 0.1s;">Profissionais com histórico consistente em vendas e gestão de metas, que merecem atenção na entrevista.</p>
-                <p class="cv-instruction fade-in" style="animation-delay: 0.15s;">
-                    INSTRUÇÃO: Para acessar o Currículo completo de cada candidato, <span class="text-accent">clique diretamente no nome</span> destacado em cada card.
-                </p>
-
-                <div class="grid-2">
-                    <!-- Card Michel -->
-                    <div class="card fade-in" tabindex="0" style="animation-delay: 0.2s;">
-                        <div class="card-header">
-                            <i data-lucide="briefcase" class="icon"></i>
-                            <h3><a href="https://drive.google.com/file/d/1wOPgSeQKuQb8foiodNdMWk5wkwTUgf7u/view?usp=sharing" target="_blank">Michel dos Santos Sabino <i data-lucide="external-link" class="link-icon"></i></a></h3>
-                        </div>
-                        <p class="merriweather">Nível de Adequação: ALTO | Perfil: Foco em Metas e Comunicação Persuasiva.</p>
-                        <ul>
-                            <li><span class="text-accent">Experiência:</span> Vendas e Gerência em setores competitivos (Automóveis e Telecom).</li>
-                            <li><span class="text-accent">Habilidades:</span> Autodescrição forte em <span class="text-accent">Orientação para Resultados</span> e Habilidades de Negociação.</li>
-                            <li><span class="text-accent">Ponto a Explorar:</span> Sua experiência em Gerência deve ser explorada para entender sua capacidade de motivação individual.</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- NOVO Card Fábio Soares Cantuário -->
-                    <div class="card fade-in" tabindex="0" style="animation-delay: 0.3s;">
-                        <div class="card-header">
-                            <i data-lucide="clipboard-user" class="icon"></i>
-                            <!-- Link Adicionado -->
-                            <h3><a href="https://drive.google.com/file/d/1mWTmx_kcg_-TTzIEkIpMyy48-VYeu_jj/view?usp=sharing" target="_blank">Fábio Soares Cantuário <i data-lucide="external-link" class="link-icon"></i></a></h3>
-                        </div>
-                        <p class="merriweather">Nível de Adequação: ALTO | Perfil: Gestão de Vendas / Liderança.</p>
-                        <ul>
-                            <li><span class="text-accent">Diferencial Chave:</span> Graduado em <span class="text-accent">Administração de Empresas</span> e vasta experiência em Supervisão de Vendas (Ciclo Engenharia) e Liderança de Loja (Atacadão).</li>
-                            <li><span class="text-accent">Habilidades:</span> Experiência em seleção, contratação, demissão e treinamento de equipes de vendas.</li>
-                            <li><span class="text-accent">Ponto a Explorar:</span> Validar o interesse em uma vaga de <span class="text-accent">vendedor de linha de frente</span>, dado seu forte histórico de gestão.</li>
-                        </ul>
-                    </div>
+                <h2 class="fade-in">1. Top Talentos para a Vaga de Vendas <i data-lucide="star"></i></h2>
+                <p class="text-lead fade-in" style="animation-delay: 0.1s;">Candidatos com o maior alinhamento entre experiência, habilidades de relacionamento e foco em resultados.</p>
+                
+                <div class="instruction-box fade-in" style="animation-delay: 0.2s;">
+                    <i data-lucide="mouse-pointer"></i>
+                    <span class="text-primary">Para acessar o Currículo, <span class="text-accent">clique no NOME do candidato</span> no topo do card.</span>
                 </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 3: Insights Estratégicos para o Recrutador -->
-        <section>
-            <div class="container">
-                <h2 class="fade-in">3. Insights Estratégicos e Foco na Entrevista <i data-lucide="lightbulb"></i></h2>
-                <p class="text-lead fade-in" style="animation-delay: 0.1s;">Pontos-chave para a tomada de decisão, alinhados à cultura da Casa Goianita (relacionamento e vendas).</p>
 
                 <div class="grid-2" style="margin-top: var(--space-md);">
                     
-                    <!-- Insight 1: Alinhamento de Perfil -->
-                    <div class="card card-highlight fade-in" tabindex="0" style="animation-delay: 0.2s;">
+                    <!-- Card Iury -->
+                    <div class="card card-highlight fade-in" tabindex="0" style="animation-delay: 0.3s;">
                         <div class="card-header">
-                            <i data-lucide="columns" class="icon"></i>
-                            <h3>Comparação Top 2 (Bruno vs. Iury)</h3>
+                            <i data-lucide="handshake" class="icon"></i>
+                            <h3>
+                                <a href="https://docs.google.com/document/d/1Tca4fUh0smzhmX4RbgfrSWtoNn7QqXlm/edit" target="_blank" class="cv-link">
+                                    Iury Oliveira Gomes <i data-lucide="external-link" class="icon" size="18"></i>
+                                </a>
+                            </h3>
                         </div>
+                        <p class="merriweather">Perfil de <span class="text-accent">Venda de Alto Valor e Relacionamento de Longo Prazo</span>.</p>
                         <ul>
-                            <li><span class="text-accent">Bruno dos Anjos:</span> Foco em Potencial de Liderança (Supervisão/Gestão).</li>
-                            <li><span class="text-accent">Iury Gomes:</span> Foco em Networking e Venda de Alto Valor (Imóveis/Arquitetura).</li>
+                            <li><span class="text-accent">Força:</span> 4 anos como Corretor de Imóveis (RE/MAX) e Perito em Avaliação. Indica capacidade de lidar com **negócios complexos e clientes de alto padrão**.</li>
+                            <li><span class="text-accent">Habilidades:</span> Formação em Transações Imobiliárias (CRECI) e Gestão Empresarial.</li>
+                            <li><span class="text-accent">Insight:</span> Sua experiência em **redes de contato (cerimonialistas/arquitetos)** deve ser validada na entrevista.</li>
                         </ul>
                     </div>
 
-                    <!-- Insight 2: Perguntas-Chave para Entrevista -->
+                    <!-- Card Bruno dos Anjos -->
+                    <div class="card fade-in" tabindex="0" style="animation-delay: 0.4s;">
+                        <div class="card-header">
+                            <i data-lucide="trending-up" class="icon"></i>
+                            <h3>
+                                <a href="https://drive.google.com/file/d/1ERnETdrTmhpaVtdSvCr0vF-9YxNYfUH/view?usp=sharing" target="_blank" class="cv-link">
+                                    Bruno Dos Anjos <i data-lucide="external-link" class="icon" size="18"></i>
+                                </a>
+                            </h3>
+                        </div>
+                        <p class="merriweather">Perfil de <span class="text-accent">Crescimento e Liderança em Vendas</span>, ideal para ser moldado.</p>
+                        <ul>
+                            <li><span class="text-accent">Força:</span> Progressão rápida: Vendedor Interno/Externo → Supervisor de Loja. Demonstra **foco em resultados e gestão de equipe**.</li>
+                            <li><span class="text-accent">Habilidades:</span> Cursando Gestão Comercial. Menciona "relacionamentos sólidos" e "negociação".</li>
+                            <li><span class="text-accent">Insight:</span> Deve confirmar como transferirá a experiência em PVC para a venda consultiva de alto valor (Casa Goianita).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2: Candidatos Sólidos (Boa Adequação) -->
+        <section>
+            <div class="container">
+                <h2 class="fade-in">2. Candidatos Sólidos e de Apoio <i data-lucide="users"></i></h2>
+                <p class="text-lead fade-in" style="animation-delay: 0.1s;">Perfis com boa experiência em vendas/gestão, mas que exigem validação de aderência ao alto padrão da loja.</p>
+
+                <div class="instruction-box fade-in" style="animation-delay: 0.2s;">
+                    <i data-lucide="mouse-pointer"></i>
+                    <span class="text-primary">Para acessar o Currículo, <span class="text-accent">clique no NOME do candidato</span> no topo do card.</span>
+                </div>
+
+                <div class="grid-3" style="margin-top: var(--space-md);">
+                    
+                    <!-- Card Michel -->
+                    <div class="card fade-in" tabindex="0" style="animation-delay: 0.3s;">
+                        <div class="card-header">
+                            <i data-lucide="briefcase" class="icon"></i>
+                            <h3>
+                                <a href="https://drive.google.com/file/d/1wOPgSeQKuQb8foiodNdMWk5wkwTUgf7u/view?usp=sharing" target="_blank" class="cv-link">
+                                    Michel Sabino <i data-lucide="external-link" class="icon" size="18"></i>
+                                </a>
+                            </h3>
+                        </div>
+                        <p class="merriweather">Perfil de <span class="text-accent">Gestão de Vendas / Liderança</span>.</p>
+                        <ul>
+                            <li><span class="text-accent">Força:</span> Experiência como Gerente de Vendas (BM Motors) e Supervisor (PAGGO). Forte foco em metas e indicadores.</li>
+                            <li><span class="text-accent">Habilidades:</span> Visão estratégica, negociação e liderança de equipes.</li>
+                            <li><span class="text-accent">Insight:</span> Validar se o estilo de venda rápida (Telecom/Auto) se adapta à **venda consultiva e paciente** da Casa Goianita.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card Fábio -->
+                    <div class="card fade-in" tabindex="0" style="animation-delay: 0.4s;">
+                        <div class="card-header">
+                            <i data-lucide="clipboard-list" class="icon"></i>
+                            <h3>
+                                <a href="https://drive.google.com/file/d/1mWTmx_kcg_-TTzIEkIpMyy48-VYeu_jj/view?usp=sharing" target="_blank" class="cv-link">
+                                    Fábio Cantuário <i data-lucide="external-link" class="icon" size="18"></i>
+                                </a>
+                            </h3>
+                        </div>
+                        <p class="merriweather">Perfil <span class="text-accent">Administrativo e Supervisor de Equipes</span>.</p>
+                        <ul>
+                            <li><span class="text-accent">Força:</span> Graduado em Administração, experiência como Supervisor de Vendas e Líder de Loja (Atacadão).</li>
+                            <li><span class="text-accent">Habilidades:</span> Liderança, Treinamentos, Vendas por Telefone (Ciclo Engenharia).</li>
+                            <li><span class="text-accent">Insight:</span> Validar a motivação para retornar à **execução de vendas** (chão de loja) após experiência em gestão.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Card Bruno Sousa -->
+                    <div class="card fade-in" tabindex="0" style="animation-delay: 0.5s;">
+                        <div class="card-header">
+                            <i data-lucide="mail-plus" class="icon"></i>
+                            <h3 style="color: var(--text-primary);">Bruno Sousa de Almeida</h3>
+                        </div>
+                        <p class="merriweather">Perfil de <span class="text-accent">Apoio Administrativo / Atendimento</span>. (CV Entregue na Loja)</p>
+                        <ul>
+                            <li><span class="text-accent">Força:</span> Experiência de Vendedor (Livraria Leitura) e Inglês Intermediário (vivência nos EUA).</li>
+                            <li><span class="text-accent">Habilidades:</span> Experiência em atendimento e funções administrativas (Auxiliar Admin., Secretário).</li>
+                            <li><span class="text-accent">Insight:</span> O CV tem o objetivo declarado de "Área Administrativa". **Entrevistar para validar o interesse em Vendas de fato** e o potencial de relacionamento.</li>
+                        </ul>
+                        <!-- Não é clicável pois a origem é uma imagem sem link público -->
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3: Insights Estratégicos -->
+        <section>
+            <div class="container">
+                <h2 class="fade-in">3. Insights Estratégicos para a Entrevista <i data-lucide="lightbulb"></i></h2>
+                <p class="text-lead fade-in" style="animation-delay: 0.1s;">Perguntas-chave focadas em validar os diferenciais da vaga (CRM/ERP, vivência no segmento, rede de contatos) para os candidatos que seguem no processo.</p>
+
+                <div class="grid-2" style="margin-top: var(--space-md);">
+                    
+                    <!-- Card Comparação -->
+                    <div class="card card-highlight fade-in" tabindex="0" style="animation-delay: 0.2s;">
+                        <div class="card-header">
+                            <i data-lucide="git-branch" class="icon"></i>
+                            <h3>Comparação Direta (Bruno dos Anjos vs. Iury)</h3>
+                        </div>
+                        <ul>
+                            <li><span class="text-accent">Bruno dos Anjos (Supervisor/PVC):</span> Pergunte sobre a visão de **Gestão da Experiência do Cliente (CX)**. Como ele garantiria o relacionamento pós-venda em itens de luxo?</li>
+                            <li><span class="text-accent">Iury:</span> Pergunte sobre a **qualidade da rede de contatos** em Brasília e Goiânia. Como ele traria essa rede (Cerimonialistas/Arquitetos) para a Casa Goianita?</li>
+                            <li><span class="text-accent">Ambos:</span> Validar o conhecimento prático em **CRM/ERP** (diferencial da vaga).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card Validação de Perfil Sólido -->
                     <div class="card fade-in" tabindex="0" style="animation-delay: 0.3s;">
                         <div class="card-header">
                             <i data-lucide="message-square" class="icon"></i>
-                            <h3>Validação dos Diferenciais</h3>
+                            <h3>Validação dos Perfis Michel, Fábio e Bruno Sousa</h3>
                         </div>
-                        <p>É crucial validar a vivência com o <span class="text-accent">segmento Casa/Decoração</span> (diferencial da vaga). Perguntas focadas:</p>
                         <ul>
-                            <li><span class="text-accent">Bruno:</span> Como a venda de PVC se relaciona com projetos de casa ou arquitetura?</li>
-                            <li><span class="text-accent">Michel:</span> Peça exemplos de como ele usou sistemas <span class="text-accent">(CRM/ERP)</span> para gerenciar seu funil de vendas.</li>
-                            <li><span class="text-accent">Iury:</span> Validar se sua rede de contatos no setor imobiliário (RE/MAX) inclui arquitetos e designers.</li>
-                            <li><span class="text-accent">Fábio:</span> Dado seu histórico de Gestor, qual sua motivação para atuar na linha de frente de vendas no varejo?</li>
+                            <li><span class="text-accent">Michel:</span> Peça exemplos de como ele usa o CRM/ERP para gerenciar seu funil de vendas, focando na **qualidade** da venda, não apenas na quantidade.</li>
+                            <li><span class="text-accent">Fábio:</span> Peça para simular o **Cenário B** (Objeção de Preço). Avalie a argumentação dele na defesa do valor, e não do desconto.</li>
+                            <li><span class="text-accent">Bruno Sousa (Entregue na Loja):</span> Questione sobre a mudança de foco: Por que Vendas (alto padrão) e não Administrativo (seu objetivo de CV)? **Avalie a sinceridade e paixão pela área.**</li>
                         </ul>
                     </div>
 
@@ -440,13 +467,8 @@
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Aplica animação com base no valor do 'animation-delay' do CSS
-                        const delay = entry.target.style.animationDelay ? parseFloat(entry.target.style.animationDelay) * 1000 : 0;
-                        setTimeout(() => {
-                            entry.target.classList.add('is-visible');
-                        }, delay);
-                        
-                        observer.unobserve(entry.target); 
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Para que a animação ocorra apenas uma vez
                     }
                 });
             }, observerOptions);
@@ -456,7 +478,7 @@
             });
         });
 
-        // 6. Padrões de Acessibilidade: Garante o focus visível para teclado
+        // 6. Padrões de Acessibilidade: Script para garantir foco visível em cards (redundância)
         document.querySelectorAll('.card').forEach(card => {
             card.addEventListener('focus', () => {
                 card.classList.add('is-focused');
@@ -469,5 +491,3 @@
     </script>
 </body>
 </html>
-
-
