@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avaliação Final de Candidatos - Vendas Casa Goianita</title>
-    <!-- 1.2. Tipografia (Tokens) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;1,700;1,900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Load Lucide Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;1,700;1,900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         /* 1.1. Paleta de Cores (Tokens) */
@@ -60,6 +58,18 @@
         h1 { font-size: var(--font-size-h1); }
         h2 { font-size: var(--font-size-h2); }
         h3 { font-size: var(--font-size-h3); color: var(--text-primary); }
+        
+        /* Estilo H4 para os cards */
+        h4 {
+            color: var(--text-muted); 
+            font-weight: 600; 
+            margin-top: 1.5rem; 
+            margin-bottom: 0.5rem; 
+            border-bottom: 1px solid var(--border-color); 
+            padding-bottom: 0.25rem;
+            font-size: 1.2rem;
+        }
+
         p { color: var(--text-subtle); margin-bottom: var(--space-sm); }
         .text-accent { color: var(--accent-color); font-weight: 600; }
         .text-lead { font-size: 1.25rem; color: var(--text-muted); margin-bottom: var(--space-md); }
@@ -117,15 +127,13 @@
             position: relative; /* Para o overlay do link */
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
         }
         .card:hover {
-            /* Estados de Interação: :hover */
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), var(--accent-glow);
         }
         .card:focus-visible {
-            /* Estados de Interação: :focus-visible (Acessibilidade) */
             outline: 3px solid var(--accent-color);
             outline-offset: 4px;
         }
@@ -151,7 +159,7 @@
 
         /* Link de CV em Evidência */
         .cv-link {
-            color: var(--accent-color); /* Destaca o nome do candidato */
+            color: var(--accent-color);
             text-decoration: none;
             cursor: pointer;
             transition: color 0.3s ease;
@@ -160,7 +168,7 @@
             align-items: center;
         }
         .cv-link:hover {
-            color: var(--text-primary); /* Inversão de cores no hover */
+            color: var(--text-primary);
         }
         .cv-link .icon {
             margin-left: 8px;
@@ -228,25 +236,11 @@
         .fade-in.is-visible {
             animation: fadeIn 0.8s ease-out forwards;
         }
-
-        /* Footer */
-        footer {
-            background-color: var(--card-bg);
-            border-top: 1px solid var(--border-color);
-            padding: var(--space-md) 0;
-            text-align: center;
-        }
-        footer p {
-            margin: 0;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
         
     </style>
 </head>
 <body>
 
-    <!-- 3. Estrutura e Layout: Cabeçalho -->
     <header>
         <div class="container header-content">
             <img class="logo-img" src="https://raw.githubusercontent.com/Clebito2/ConsultoriaLive/main/Logo%20live%20oficial-21.png" alt="Logo Principal da Live Consultoria" loading="lazy">
@@ -255,11 +249,10 @@
     </header>
 
     <main>
-        <!-- SEÇÃO PRINCIPAL: Introdução e Contexto -->
         <section style="padding-top: calc(var(--space-xl) + 60px);">
             <div class="container fade-in">
                 <h1 class="text-accent">Recrutamento Casa Goianita: Foco em Vendas e Relacionamento</h1>
-                <p class="text-lead">Análise final dos perfis com maior alinhamento à vaga de Vendedor(a) da Casa Goianita, que exige <strong>foco total no cliente</strong> e <strong>vivência em alto padrão</strong>.</p>
+                <p class="text-lead">Análise final dos perfis com maior alinhamento à vaga de Vendedor(a) da Casa Goianita, que exige <span class="text-accent">foco total no cliente</span> e <span class="text-accent">vivência em alto padrão</span>.</p>
                 
                 <div class="interview-guide-box fade-in" style="animation-delay: 0.1s;">
                     <i data-lucide="chevrons-right" style="color: var(--accent-color); vertical-align: middle;"></i>
@@ -270,103 +263,46 @@
                 <div class="card fade-in" style="margin-top: var(--space-md); animation-delay: 0.2s;">
                     <p class="merriweather">
                         <span class="text-accent">Candidatos Desclassificados/Outro Foco:</span>
-                        Vaneska Cirilo (Não atende escolaridade obrigatória), Carlos Lima e André Luis Martins (Desclassificados), Juliana Benignos (Recusou Proposta), Bruno Sousa de Almeida (Foco em Administrativo).
+                        Vaneska Cirilo (Não atende escolaridade obrigatória), Carlos Lima e André Luis Martins (Desclassificados), Pedro Acioli (Foco em Logística/Gestão), Juliana Benignos (Recusou Proposta), Bruno Sousa de Almeida (Foco em Administrativo), <span class="text-accent">Iury Oliveira Gomes (Desalinhamento com Proposta)</span>, <span class="text-accent">Michel Sabino (Desalinhamento com Proposta)</span> e <span class="text-accent">Bruno dos Anjos (Desalinhamento com Proposta)</span>.
                         <br>
                         <span class="text-subtle">CVs para referência:</span>
                         <a href="https://docs.google.com/document/d/1FBvgTej010vXIRrBWw-6OsypAEtAj-KV/edit?usp=sharing&ouid=105131605658621100655&rtpof=true&sd=true" target="_blank" class="desclassificado">Vaneska</a>, 
                         <a href="https://docs.google.com/document/d/1_oqFgmuF6g5zrmum9hnz3NJhzx35Ces4/edit?rtpof=true&tab=t.0" target="_blank" class="desclassificado">Carlos</a>, 
                         <a href="https://docs.google.com/document/d/1-MrJkWCkkIb_NZ0wRKdnPvccL5hjmQj-/edit?usp=sharing&ouid=105131605658621100655&rtpof=true&sd=true" target="_blank" class="desclassificado">André</a>,
-                        <a href="https://drive.google.com/file/d/1gZyQr4IyjrMkWwNJEoqfUMNEaQTmZWY8/view?usp=sharing" target="_blank" class="desclassificado">Bruno Sousa</a>.
+                        <a href="https://drive.google.com/file/d/1gZyQr4IyjrMkWwNJEoqfUMNEaQTmZWY8/view?usp=sharing" target="_blank" class="desclassificado">Bruno Sousa</a>,
+                        <a href="https://docs.google.com/document/d/1Tca4fUh0smzhmX4RbgfrSWtoNn7QqXlm/edit" target="_blank" class="desclassificado">Iury</a>,
+                        <a href="https://drive.google.com/file/d/1wOPgSeQKuQb8foiodNdMWk5wkwTUgf7u/view?usp=sharing" target="_blank" class="desclassificado">Michel</a>,
+                        <a href="https://drive.google.com/file/d/1ERnETdrTmhpaVtdSvKCr0vF-9YxNYfUH/view?usp=sharing" target="_blank" class="desclassificado">Bruno dos Anjos</a>.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 1: Top Talentos (Melhor Adequação) -->
         <section>
             <div class="container">
-                <h2 class="fade-in">1. Top Talentos para a Vaga de Vendas <i data-lucide="star"></i></h2>
-                <p class="text-lead fade-in" style="animation-delay: 0.1s;">Candidatos com o maior alinhamento entre experiência, habilidades de relacionamento e foco em resultados.</p>
+                <h2 class="fade-in">1. Top Talentos (Foco Atual) <i data-lucide="star"></i></h2>
+                <p class="text-lead fade-in" style="animation-delay: 0.1s;">O candidato de maior alinhamento (<span class="text-accent">Bruno dos Anjos</span>) foi desclassificado por desalinhamento de proposta. O processo segue agora focado nos <span class="text-accent">Candidatos Sólidos da Seção 2</span>.</p>
                 
                 <div class="instruction-box fade-in" style="animation-delay: 0.2s;">
                     <i data-lucide="mouse-pointer"></i>
-                    <span class="text-primary">Para acessar o Currículo, <span class="text-accent">clique no NOME do candidato</span> no topo do card.</span>
-                </div>
-
-                <div class="grid-2" style="margin-top: var(--space-md);">
-                    
-                    <!-- Card Iury -->
-                    <div class="card card-highlight fade-in" tabindex="0" style="animation-delay: 0.3s;">
-                        <div class="card-header">
-                            <i data-lucide="handshake" class="icon"></i>
-                            <h3>
-                                <a href="https://docs.google.com/document/d/1Tca4fUh0smzhmX4RbgfrSWtoNn7QqXlm/edit" target="_blank" class="cv-link">
-                                    Iury Oliveira Gomes <i data-lucide="external-link" class="icon" size="18"></i>
-                                </a>
-                            </h3>
-                        </div>
-                        <p class="merriweather">Perfil de <span class="text-accent">Venda de Alto Valor e Relacionamento de Longo Prazo</span>.</p>
-                        <ul>
-                            <li><span class="text-accent">Força:</span> 4 anos como Corretor de Imóveis (RE/MAX) e Perito em Avaliação. Indica capacidade de lidar com <strong>negócios complexos e clientes de alto padrão</strong>.</li>
-                            <li><span class="text-accent">Habilidades:</span> Formação em Transações Imobiliárias (CRECI) e Gestão Empresarial.</li>
-                            <li><span class="text-accent">Insight:</span> Sua experiência em <strong>redes de contato (cerimonialistas/arquitetos)</strong> deve ser validada na entrevista.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Card Bruno dos Anjos -->
-                    <div class="card fade-in" tabindex="0" style="animation-delay: 0.4s;">
-                        <div class="card-header">
-                            <i data-lucide="trending-up" class="icon"></i>
-                            <h3>
-                                <a href="https://drive.google.com/file/d/1ERnETdrTmhpaVtdSvKCr0vF-9YxNYfUH/view?usp=sharing" target="_blank" class="cv-link">
-                                    Bruno Dos Anjos <i data-lucide="external-link" class="icon" size="18"></i>
-                                </a>
-                            </h3>
-                        </div>
-                        <p class="merriweather">Perfil de <span class="text-accent">Crescimento e Liderança em Vendas</span>, ideal para ser moldado.</p>
-                        <ul>
-                            <li><span class="text-accent">Força:</span> Progressão rápida: Vendedor Interno/Externo → Supervisor de Loja. Demonstra <strong>foco em resultados e gestão de equipe</strong>.</li>
-                            <li><span class="text-accent">Habilidades:</span> Cursando Gestão Comercial. Menciona "relacionamentos sólidos" e "negociação".</li>
-                            <li><span class="text-accent">Insight:</span> Deve confirmar como transferirá a experiência em PVC para a venda consultiva de alto valor (Casa Goianita).</li>
-                        </ul>
-                    </div>
+                    <span class="text-primary">Por favor, avance para a Seção 2 para os perfis que continuam no processo.</span>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 2: Candidatos Sólidos (Boa Adequação) -->
         <section>
             <div class="container">
-                <h2 class="fade-in">2. Candidatos Sólidos e de Apoio <i data-lucide="users"></i></h2>
-                <p class="text-lead fade-in" style="animation-delay: 0.1s;">Perfis com boa experiência em vendas/gestão, mas que exigem validação de aderência ao alto padrão da loja.</p>
+                <h2 class="fade-in">2. Candidatos Finais (Foco do Recrutamento) <i data-lucide="users"></i></h2>
+                <p class="text-lead fade-in" style="animation-delay: 0.1s;">Perfis com boa experiência em vendas/gestão e alta motivação, que exigem validação de aderência para a etapa final.</p>
 
                 <div class="instruction-box fade-in" style="animation-delay: 0.2s;">
                     <i data-lucide="mouse-pointer"></i>
-                    <span class="text-primary">Para acessar o Currículo, <span class="text-accent">clique no NOME do candidato</span> no topo do card.</span>
+                    <span class="text-primary">Análises de Fábio e Elayne atualizadas com base nos CVs. Adriely adicionada.</span>
                 </div>
 
                 <div class="grid-3" style="margin-top: var(--space-md);">
                     
-                    <!-- Card Michel -->
                     <div class="card fade-in" tabindex="0" style="animation-delay: 0.3s;">
-                        <div class="card-header">
-                            <i data-lucide="briefcase" class="icon"></i>
-                            <h3>
-                                <a href="https://drive.google.com/file/d/1wOPgSeQKuQb8foiodNdMWk5wkwTUgf7u/view?usp=sharing" target="_blank" class="cv-link">
-                                    Michel Sabino <i data-lucide="external-link" class="icon" size="18"></i>
-                                </a>
-                            </h3>
-                        </div>
-                        <p class="merriweather">Perfil de <span class="text-accent">Gestão de Vendas / Liderança</span>.</p>
-                        <ul>
-                            <li><span class="text-accent">Força:</span> Experiência como Gerente de Vendas (BM Motors) e Supervisor (PAGGO). Forte foco em metas e indicadores.</li>
-                            <li><span class="text-accent">Habilidades:</span> Visão estratégica, negociação e liderança de equipes.</li>
-                            <li><span class="text-accent">Insight:</span> Validar se o estilo de venda rápida (Telecom/Auto) se adapta à <strong>venda consultiva e paciente</strong> da Casa Goianita.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Card Fábio -->
-                    <div class="card fade-in" tabindex="0" style="animation-delay: 0.4s;">
                         <div class="card-header">
                             <i data-lucide="clipboard-list" class="icon"></i>
                             <h3>
@@ -375,48 +311,110 @@
                                 </a>
                             </h3>
                         </div>
-                        <p class="merriweather">Perfil <span class="text-accent">Administrativo e Supervisor de Equipes</span>.</p>
+                        <p class="merriweather" style="margin-bottom: 1rem;">
+                            <strong>Parecer Resumido:</strong> Perfil Sênior (45 anos), com forte background em **Liderança e Gestão de Equipes de Vendas** (Supervisor na Ciclo Engenharia por 9 anos, Líder no Atacadão). Experiência recente é volátil e desalinhada (Editor de Vídeo, Sócio em Confecção).
+                        </p>
+                        <p class="text-accent" style="font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem;">
+                            Recomendação: Aprovar para Entrevista (Prioridade Média).
+                        </p>
+                        <h4>Destaques do Perfil (Pontos Fortes)</h4>
                         <ul>
-                            <li><span class="text-accent">Força:</span> Graduado em Administração, experiência como Supervisor de Vendas e Líder de Loja (Atacadão).</li>
-                            <li><span class="text-accent">Habilidades:</span> Liderança, Treinamentos, Vendas por Telefone (Ciclo Engenharia).</li>
-                            <li><span class="text-accent">Insight:</span> Validar a motivação para retornar à <strong>execução de vendas</strong> (chão de loja) após experiência em gestão.</li>
+                            <li><span class="text-accent">Liderança Comprovada:</span> Quase 10 anos supervisionando vendas por telefone (Ciclo Engenharia). Sabe contratar, treinar e gerir metas.</li>
+                            <li><span class="text-accent">Formação Acadêmica:</span> Graduado em Administração, dando base teórica para a gestão.</li>
+                            <li><span class="text-accent">Visão de Dono:</span> Teve duas experiências como Sócio Proprietário, entendendo de finanças, estoque e gestão geral.</li>
+                        </ul>
+
+                        <h4>Pontos de Atenção (Foco para Entrevista)</h4>
+                        <ul>
+                            <li><span class="text-accent">Motivação (Crítico):</span> Por que um Administrador com 15 anos de liderança quer uma vaga de *execução* (chão de loja)? Risco de insatisfação a curto prazo é alto.</li>
+                            <li><span class="text-accent">Volatilidade Recente:</span> As 4 últimas posições (2017-2025) foram curtas ou fora da área. Entender a instabilidade.</li>
+                            <li><span class="text-accent">Telefone vs. Presencial:</span> Maior experiência foi em "vendas por telefone". Validar habilidade de venda consultiva presencial de alto padrão.</li>
                         </ul>
                     </div>
                     
+                    <div class="card card-highlight fade-in" tabindex="0" style="animation-delay: 0.4s;">
+                        <div class="card-header">
+                            <i data-lucide="mic" class="icon"></i>
+                            <h3>
+                                <a href="https://drive.google.com/file/d/191gaiYTXZxTvn2C6j0l9flHfFaI0OZQO/view?usp=sharing" target="_blank" class="cv-link">
+                                    Elayne Silva <i data-lucide="external-link" class="icon" size="18"></i>
+                                </a>
+                            </h3>
+                        </div>
+                        <p class="merriweather" style="margin-bottom: 1rem;">
+                            <strong>Parecer Resumido:</strong> Perfil de Varejo (Execução). Experiência direta e recente no varejo (Palmas Mix, Vip Papelaria), incluindo atendimento presencial e online (WhatsApp/Instagram). Entende o "ecossistema" da loja (Caixa, Recebimento, Estoque).
+                        </p>
+                        <p class="text-accent" style="font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem;">
+                            Recomendação: Aprovar para Entrevista (Prioridade Média).
+                        </p>
+                        <h4>Destaques do Perfil (Pontos Fortes)</h4>
+                        <ul>
+                            <li><span class="text-accent">Varejo Híbrido:</span> Experiência em vendas presenciais, telefone, WhatsApp e Instagram (Palmas Mix, Vip Papelaria).</li>
+                            <li><span class="text-accent">Visão 360° da Loja:</span> Experiência em "Operação de caixa", "auxílio em recebimento", "controle de estoque" e "reposição de mercadorias".</li>
+                            <li><span class="text-accent">Habilidades Comportamentais:</span> Autodeclara "Proativa", "Comunicativa" e "Atenciosa".</li>
+                        </ul>
+
+                        <h4>Pontos de Atenção (Foco para Entrevista)</h4>
+                        <ul>
+                            <li><span class="text-accent">Venda Transacional vs. Consultiva:</span> Experiências (papelaria, mix) são de varejo de giro rápido. Validar paciência para venda de alto valor.</li>
+                            <li><span class="text-accent">Estabilidade:</span> Passagens relativamente curtas. Validar resiliência para um modelo de comissão pura.</li>
+                            <li><span class="text-accent">Comunicação:</span> Validar se a comunicação é compatível com o público de alto padrão.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card fade-in" tabindex="0" style="animation-delay: 0.5s;">
+                        <div class="card-header">
+                            <i data-lucide="home" class="icon"></i>
+                            <h3>
+                                <a href="https://drive.google.com/file/d/1t94rTJgg7-7d8eQdOhyJlLtIRWloze_C/view?usp=sharing" target="_blank" class="cv-link">
+                                    Adriely Silva da Costa <i data-lucide="external-link" class="icon" size="18"></i>
+                                </a>
+                            </h3>
+                        </div>
+                        
+                        <p class="merriweather" style="margin-bottom: 1rem;">
+                            <strong>Parecer Resumido:</strong> A candidata apresenta um potencial excepcional e um alinhamento de nicho raro para uma vaga de Vendas Consultivas no agronegócio. Com 21 anos, ela combina experiência prática direta na função (venda de peças agrícolas) com a formação acadêmica ideal (cursando Agronomia).
+                        </p>
+                        <p class="text-accent" style="font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem;">
+                            Recomendação: Aprovar para Entrevista (Alta Prioridade).
+                        </p>
+
+                        <h4>Destaques do Perfil (Pontos Fortes)</h4>
+                        <ul>
+                            <li><span class="text-accent">Alinhamento NICHADO:</span> Combina experiência prática (venda de peças agrícolas) com a formação acadêmica ideal (cursando Agronomia), fornecendo credibilidade técnica.</li>
+                            <li><span class="text-accent">Foco em Venda Consultiva:</span> Enfatiza "Atendimento técnico e comercial" e "Atendimento consultivo", indicando venda de valor, não de preço.</li>
+                            <li><span class="text-accent">Estabilidade e Experiência:</span> Sólida permanência de quase 3 anos na mesma função relevante (Set/2022 - Jun/2025).</li>
+                            <li><span class="text-accent">Visão Completa do Processo:</span> Compreende "Controle e organização de estoque" e "Conferência de notas fiscais", facilitando a integração com o back-office.</li>
+                        </ul>
+
+                        <h4>Pontos de Atenção (Foco para Entrevista)</h4>
+                        <ul>
+                            <li><span class="text-accent">Validação de Métricas:</span> O CV descreve atividades, mas não resultados. Perguntar: "Qual era sua meta de vendas mensal?", "% de atingimento?", "Quantos clientes (produtores) ativos você gerenciava?".</li>
+                            <li><span class="text-accent">Perfil Hunter vs. Farmer:</span> O CV foca em "atendimento" (Farmer). Validar prospecção ativa: "Sua rotina era mais receptiva ou você tinha meta de prospecção (cold call)?".</li>
+                            <li><span class="text-accent">Gestão de Resiliência (Técnica STAR):</span> "Descreva uma situação em que um produtor estava muito insatisfeito (peça errada, prazo falhou). Qual foi sua Ação e o Resultado?".</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 3: Insights Estratégicos -->
         <section>
             <div class="container">
-                <h2 class="fade-in">3. Insights Estratégicos para a Entrevista <i data-lucide="lightbulb"></i></h2>
-                <p class="text-lead fade-in" style="animation-delay: 0.1s;">Perguntas-chave focadas em validar os diferenciais da vaga (CRM/ERP, vivência no segmento, rede de contatos) para os candidatos que seguem no processo.</p>
+                <h2 class="fade-in">3. Insights Estratégicos para a Entrevista Final <i data-lucide="lightbulb"></i></h2>
+                <p class="text-lead fade-in" style="animation-delay: 0.1s;">Perguntas-chave focadas em validar os diferenciais da vaga (CRM/ERP, vivência no segmento, rede de contatos) para os candidatos finais (Fábio, Elayne, Adriely).</p>
 
-                <div class="grid-2" style="margin-top: var(--space-md);">
+                <div style="max-width: 800px; margin-top: var(--space-md);">
                     
-                    <!-- Card Comparação -->
                     <div class="card card-highlight fade-in" tabindex="0" style="animation-delay: 0.2s;">
                         <div class="card-header">
-                            <i data-lucide="git-branch" class="icon"></i>
-                            <h3>Comparação Direta (Bruno dos Anjos vs. Iury)</h3>
-                        </div>
-                        <ul>
-                            <li><span class="text-accent">Bruno dos Anjos (Supervisor/PVC):</span> Pergunte sobre a visão de <strong>Gestão da Experiência do Cliente (CX)</strong>. Como ele garantiria o relacionamento pós-venda em itens de luxo?</li>
-                            <li><span class="text-accent">Iury:</span> Pergunte sobre a <strong>qualidade da rede de contatos</strong> em Brasília e Goiânia. Como ele traria essa rede (Cerimonialistas/Arquitetos) para a Casa Goianita?</li>
-                            <li><span class="text-accent">Ambos:</span> Validar o conhecimento prático em <strong>CRM/ERP</strong> (diferencial da vaga).</li>
-                        </ul>
-                    </div>
-
-                    <!-- Card Validação de Perfil Sólido -->
-                    <div class="card fade-in" tabindex="0" style="animation-delay: 0.3s;">
-                        <div class="card-header">
                             <i data-lucide="message-square" class="icon"></i>
-                            <h3>Validação dos Perfis Michel e Fábio</h3>
+                            <h3>Validação dos Perfis Fábio, Elayne e Adriely (Foco Final)</h3>
                         </div>
                         <ul>
-                            <li><span class="text-accent">Michel:</span> Peça exemplos de como ele usa o CRM/ERP para gerenciar seu funil de vendas, focando na <strong>qualidade</strong> da venda, não apenas na quantidade.</li>
-                            <li><span class="text-accent">Fábio:</span> Peça para simular o <strong>Cenário B</strong> (Objeção de Preço). Avalie a argumentação dele na defesa do valor, e não do desconto.</li>
+                            <li><span class="text-accent">Fábio:</span> Foco total em <span style="font-weight: 700;">Motivação</span>. Validar por que um administrador com 15 anos de liderança e experiência como dono quer voltar para a <span style="font-weight: 700;">execução de vendas</span>.</li>
+                            <li><span class="text-accent">Elayne:</span> Foco em <span style="font-weight: 700;">Nível de Consultoria</span>. Validar a capacidade de transição de uma venda de varejo transacional (papelaria, mix) para uma <span style="font-weight: 700;">venda consultiva de alto padrão</span> (Casa Goianita).</li>
+                            <li><span class="text-accent">Adriely:</span> Validar o foco em <span style="font-weight: 700;">métricas de performance</span> (metas, atingimento) e a capacidade de <span style="font-weight: 700;">prospecção ativa (Hunter)</span>, além do atendimento consultivo (Farmer).</li>
+                            <li><span class="text-accent">Geral:</span> Peça a cada um um exemplo prático de como lidariam com um <span style="font-weight: 700;">cliente irritado</span> que reclama de falta de produto ou prazo de entrega.</li>
                         </ul>
                     </div>
 
@@ -424,15 +422,6 @@
             </div>
         </section>
     </main>
-
-    <!-- 3. Estrutura e Layout: Rodapé -->
-    <footer>
-        <div class="container">
-            <!-- 2.1. Logos: Rodapé (Proposta) -->
-            <img class="logo-img" src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-34.png" alt="Logo Live Consultoria" loading="lazy" style="margin-bottom: 10px;">
-            <p>Análise de Talentos desenvolvida pela Live Consultoria | Goiânia, Goiás</p>
-        </div>
-    </footer>
 
     <script>
         // Função para iniciar os ícones Lucide
